@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cryptography Project</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Fixed Top Bar -->
+    <header class="top-bar">
+        <div class="top-bar-left">
+            <img src="images/institute_logo.png" alt="KFS-H.I.E.T Logo" class="logo">
+            <div class="brand-info">
+                <h1>KFS-H.I.E.T</h1>
+                <span>cryptography LAB / 04</span>
+            </div>
+        </div>
+        
+        <div class="top-bar-center">
+            <div class="project-title-container">
+                <span class="status-dot"></span>
+                <h2>Encryption Project</h2>
+            </div>
+            <p>Using Caesar Cipher or Vigenère Cipher</p>
+        </div>
+
+        <div class="top-bar-right">
+            <div class="user-info">
+                <h3>EL-WaLii</h3>
+                <span>Mostafa Waliallah</span>
+            </div>
+            <img src="images/el_walii_logo.jpg" alt="El-Walii Logo" class="logo user-logo">
+        </div>
+    </header>
+
+    <div class="main-layout">
+        <!-- Left Sidebar Navigation -->
+        <aside class="sidebar">
+            <nav class="progress-nav">
+                <div class="step active" id="nav-step-1">
+                    <div class="step-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    </div>
+                    <span>METHOD</span>
+                </div>
+                <div class="step-connector"></div>
+                <div class="step" id="nav-step-2">
+                    <div class="step-icon">02</div>
+                    <span>MODE</span>
+                </div>
+                <div class="step-connector"></div>
+                <div class="step" id="nav-step-3">
+                    <div class="step-icon">03</div>
+                    <span>TRANSFORM</span>
+                </div>
+                <div class="step-connector"></div>
+                <div class="step" id="nav-step-4">
+                    <div class="step-icon">04</div>
+                    <span>OUTPUT</span>
+                </div>
+            </nav>
+            <div class="sidebar-footer">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                <span>LOCAL<br>SESSION</span>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="content-area">
+            <div class="grid-background"></div>
+
+            <!-- VIEW 1: Method Selection -->
+            <section id="view-method-selection" class="view active">
+                <header class="view-header">
+                    <div class="header-badge pill-red">STEP 01 / METHOD</div>
+                    <div class="system-status"><span class="status-dot"></span> SYSTEM READY · TWO METHODS AVAILABLE</div>
+                </header>
+                
+                <h1 class="view-title">Select a method</h1>
+                <p class="view-subtitle">Choose a classical cipher to begin. Every transformation runs locally in this Machine.</p>
+
+                <div class="cards-container">
+                    <!-- Caesar Card -->
+                    <div class="card method-card caesar-theme">
+                        <div class="card-header">
+                            <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg></div>
+                            <span class="card-meta">METHOD / 01</span>
+                        </div>
+                        <h2>Caesar Cipher</h2>
+                        <p>Shift every letter by a fixed numeric key across the alphabet.</p>
+                        <div class="formula-box"><code>>_  Eₖ(x) = (x + k) mod 26</code></div>
+                        <button class="btn btn-primary" onclick="app.selectMethod('caesar')">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg> 
+                            Open Caesar Cipher
+                        </button>
+                    </div>
+
+                    <!-- Vigenere Cipher -->
+                    <div class="card method-card vigenere-theme">
+                        <div class="card-header">
+                            <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg></div>
+                            <span class="card-meta">METHOD / 02</span>
+                        </div>
+                        <h2>Vigenère Cipher</h2>
+                        <p>Apply a repeating keyword to create a polyalphabetic substitution.</p>
+                        <div class="formula-box"><code>>_  Cᵢ = (Pᵢ + Kᵢ) mod 26</code></div>
+                        <button class="btn btn-secondary" onclick="app.selectMethod('vigenere')">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                            Open Vigenère Cipher
+                        </button>
+                    </div>
+                </div>
+
+                <footer class="view-footer">
+                    <div class="footer-left">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        Educational implementation · A-Z alphabet · Spaces and punctuation remain unchanged · Mostafa Waly Allah
+                    </div>
+                    <div class="footer-right">BUILD 1.4.2</div>
+                </footer>
+            </section>
+
+            <!-- VIEW 2: Operation Selection -->
+            <section id="view-operation-selection" class="view hidden">
+                <header class="view-header">
+                    <button class="btn-back" onclick="app.goBack('method')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg> All methods</button>
+                    <div class="header-badge pill-red">STEP 02 / MODE</div>
+                </header>
+                
+                <div class="context-tag"><span id="op-method-name" class="red-text">CAESAR CIPHER</span> <span class="line-divider"></span> <span id="op-key-type">NUMERIC KEY · 0-25</span></div>
+                <h1 class="view-title">Choose an operation</h1>
+                <p class="view-subtitle" id="op-subtitle">Transform readable text into shifted ciphertext, or reverse an existing message.</p>
+
+                <div class="cards-container">
+                    <!-- Encryption Card -->
+                    <div class="card operation-card encrypt-theme">
+                        <div class="card-header">
+                            <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg></div>
+                            <span class="pill-outline">PLAIN → CIPHER</span>
+                        </div>
+                        <h2>Encryption</h2>
+                        <p id="encrypt-desc">Shift plain text forward using a numeric key.</p>
+                        <button class="btn btn-primary" onclick="app.selectOperation('encrypt')">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg> Start Encryption
+                        </button>
+                    </div>
+
+                    <!-- Decryption Card -->
+                    <div class="card operation-card decrypt-theme">
+                        <div class="card-header">
+                            <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z"></path></svg></div>
+                            <span class="pill-outline">CIPHER → PLAIN</span>
+                        </div>
+                        <h2>Decryption</h2>
+                        <p id="decrypt-desc">Shift encrypted text backward to recover the message.</p>
+                        <button class="btn btn-outline" onclick="app.selectOperation('decrypt')">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg> Start Decryption
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- VIEW 3 & 4: Cipher Interface (Dynamically handles Caesar/Vigenere & Encrypt/Decrypt) -->
+            <section id="view-cipher" class="view hidden">
+                <header class="view-header">
+                    <button class="btn-back" onclick="app.goBack('operation')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg> <span id="cipher-back-text">Caesar Cipher modes</span></button>
+                    <div class="header-badges">
+                        <div class="header-badge pill-red">STEP 03-04 / RUN</div>
+                        <div class="execution-mode">EXECUTION MODE <br><span class="pill-solid">● LOCAL / COMPLETE</span></div>
+                    </div>
+                </header>
+
+                <h1 class="view-title" id="cipher-main-title">Caesar Cipher — Encryption</h1>
+
+                <div class="workspace-layout">
+                    <!-- Left Panel: Input -->
+                    <div class="panel input-panel">
+                        <div class="panel-header">
+                            <span class="panel-title">>_ Input parameters</span>
+                            <span class="panel-meta" id="input-meta">CAESAR / SHIFT</span>
+                        </div>
+                        
+                        <div class="input-group">
+                            <div class="label-row">
+                                <label id="input-label">Plain text</label>
+                                <span class="char-count"><span id="input-count">0</span> CHARACTERS</span>
+                            </div>
+                            <textarea id="text-input" placeholder="Type message here..."></textarea>
+                        </div>
+
+                        <div class="input-group">
+                            <div class="label-row">
+                                <label>Key</label>
+                                <span class="char-count" id="key-constraints">NUMBER / 0-25</span>
+                            </div>
+                            <div class="key-input-wrapper">
+                                <span class="key-icon" id="key-icon-display">#</span>
+                                <input type="text" id="key-input" placeholder="Enter key">
+                                <span class="valid-status">VALID</span>
+                            </div>
+                        </div>
+
+                        <div class="action-row">
+                            <button class="btn btn-primary full-width" id="action-btn" onclick="app.executeCipher()">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                                <span id="action-btn-text">Encrypt</span>
+                            </button>
+                            <button class="btn btn-outline icon-btn" onclick="app.resetWorkspace()">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                                Reset
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Center Panel: Transformer Direction -->
+                    <div class="transformer-divider">
+                        <div class="arrow-circle">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" id="direction-arrow"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </div>
+                        <span class="transform-label" id="transform-label">ENCRYPT</span>
+                    </div>
+
+                    <!-- Right Panel: Output -->
+                    <div class="panel output-panel">
+                        <div class="panel-header">
+                            <span class="panel-title"><span class="status-dot"></span> <span id="output-label">Encrypted text</span></span>
+                            <div class="panel-actions">
+                                <button class="btn-micro" onclick="app.copyOutput()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg> Copy</button>
+                                <button class="btn-micro" onclick="app.clearOutput()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg> Clear</button>
+                            </div>
+                        </div>
+                        
+                        <div class="output-display" id="text-output">
+                            <!-- JS will inject output here -->
+                        </div>
+
+                        <div class="output-footer">
+                            <span class="char-count"><span id="output-count">0</span> CHARACTERS</span>
+                            <span class="result-status"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> RESULT READY</span>
+                        </div>
+                    </div>
+                </div>
+
+                <footer class="view-footer cipher-footer">
+                    <div class="footer-left">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                        DATA NEVER LEAVES THIS DEVICE
+                    </div>
+                    <div class="footer-center" id="footer-keystream">
+                        SHIFT KEY / -
+                    </div>
+                    <div class="footer-right">
+                        LAST RUN / <span id="last-run-time">--:--:-- UTC</span><br>
+                        <span class="hex-stamp">0x45 4E 43 52 59 50 54</span><br>
+                        <span class="session-stamp">SESSION // LOCAL_ONLY</span>
+                    </div>
+                </footer>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/crypto.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
